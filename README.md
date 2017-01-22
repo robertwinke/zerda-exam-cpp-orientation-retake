@@ -1,7 +1,7 @@
-# Zerda C++ Orientation Exam
+# Zerda C++ Orientation Exam Retake
 
 ## Content Counter
-Create a command line application that read files and counts their lines, words characters 
+Create a command line application that read files and counts their lines, words and characters 
 
 ### Arguments
 The file names are just listed as arguments like:
@@ -13,37 +13,38 @@ If the program has run without any other argument it should list the line, word 
 12 523 7815
 ```
 
-The first argument optinally can filter the output:
+If no filename is provided it should print an error message like:
+```
+No file provided.
+```
 
-#### -l
+#### Flags
+The first argument optionally can filter the output:
+
+##### -l
 If the first argument is `-l` like:
 ```
 a.out -l input.txt
 ```
 Then it should only print the line count
 
-#### -w
+##### -w
 If the first argument is `-w` like:
 ```
 a.out -w input.txt
 ```
 Then it should only print the word count
 
-#### -c
+##### -c
 If the first argument is `-c` like:
 ```
 a.out -c input.txt
 ```
 Then it should only print the character count
 
-If no filename is provided it should print an error message like:
-```
-No file provided.
-```
-
 ### File handling
 
-If the program can't open any of the files it should print an error message like:
+If the program can't open any of the files, then it should print an error message like:
 ```
 Can't open file: input.txt
 ```
