@@ -10,10 +10,10 @@
 #include "FileHandler.h"
 
 FileHandler::FileHandler(vector<string> fileNames) throw (const char*) {
-  for (int i = 0; i < fileNames.size(); i++) {
+  for (unsigned int i = 0; i < fileNames.size(); i++) {
     myFile.open(fileNames[i].c_str());
     if(!myFile.is_open()) {
-      throw "Can't open file: " + fileNames[i];
+      throw "Can't open file\n";
     }
     buffer += copyTextFromFile();
     myFile.close();
@@ -33,5 +33,7 @@ string FileHandler::getText() {
 }
 
 FileHandler::~FileHandler() {
-  myFile.close();
+  if (myFile.is_open()) {
+    myFile.close();
+  }
 }
