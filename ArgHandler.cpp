@@ -13,11 +13,14 @@ ArgHandler::ArgHandler(int argc, char** argv)throw(const char *): argc(argc), ar
     if (argv[1][0] == '-' && argv[1][1] == 'l') {
       flag = "-l";
     }
-    if (argv[1][0] == '-' && argv[1][1] == 'w') {
+    else if (argv[1][0] == '-' && argv[1][1] == 'w') {
       flag = "-w";
     }
-    if (argv[1][0] == '-' && argv[1][1] == 'c') {
+    else if (argv[1][0] == '-' && argv[1][1] == 'c') {
       flag = "-c";
+    }
+    else if (argv[1][0] == '-') {
+      throw "Wrong flag\n";
     }
     for (int i = 1; i < argc; i++) {
       temp = (string)argv[i];
@@ -25,7 +28,10 @@ ArgHandler::ArgHandler(int argc, char** argv)throw(const char *): argc(argc), ar
         if (temp.substr(temp.length() - 4) == ".txt") {
           fileNames.push_back(temp);
           fileCount++;
-      }
+        }
+        else {
+          throw "Wrong file format\n";
+        }
       }
     }
   }
