@@ -15,8 +15,6 @@ Counter::Counter(string text): text(text) {
   count();
 }
 void Counter::count() {
-  string line;
-
   for (unsigned int i = 0; i < text.length(); i++) {
     if (text[i] == ' ' || text[i] == '\n' || text[i] == '\r') {
       wordCount++;

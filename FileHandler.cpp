@@ -13,7 +13,7 @@ FileHandler::FileHandler(vector<string> fileNames) throw (const char*) {
   for (int i = 0; i < fileNames.size(); i++) {
     myFile.open(fileNames[i].c_str());
     if(!myFile.is_open()) {
-      throw "couldn't open file\n";
+      throw "Can't open file: " + fileNames[i];
     }
     buffer += copyTextFromFile();
     myFile.close();
